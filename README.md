@@ -1,7 +1,6 @@
 # Zwischenblicke: darf man beim Experiment hinsehen? – Streamlit-Demo
 
-<!-- TODO nach dem Deploy: direkt hierher den Live-Link setzen (Leerzeile davor und danach):
-**[→ Demo live ausprobieren](https://sebastianhanisch-sequential-test-demo.streamlit.app/)** -->
+**[→ Demo live ausprobieren](https://sebastianhanisch-sequential-test-demo.streamlit.app/)**
 
 Interaktive Demo zum **Hinsehen während eines laufenden Experiments**. **Viertes Stück der Konzepte-Linie „Experimente und
 Wirkungsmessung“** im Portfolio von [Sebastian Hanisch](https://sebastianhanisch.net) (Operations Research und Machine
@@ -141,4 +140,4 @@ Gebaut mit Streamlit, Plotly, NumPy und SciPy (Verteilungsfunktionen, FFT).
 
 ---
 
-Diese Demo ist Teil des Portfolios von [Sebastian Hanisch](https://sebastianhanisch.net) – Operations Research und Machine Learning ([Über mich](https://sebastianhanisch.net/ueber-mich.html)). Mehr zu den Demos: [Interaktive Demos](https://sebastianhanisch.net/demos.html).
+Diese Demo ist Teil des Portfolios von [Sebastian Hanisch](https://sebastianhanisch.net) – Operations Research und Machine Learning ([Über mich](https://sebastianhanisch.net/ueber-mich.html)). Mehr zur Reihe: [Experimente und Wirkungsmessung: A/B bis Logdaten](https://sebastianhanisch.net/konzepte-experimente-wirkungsmessung.html).
