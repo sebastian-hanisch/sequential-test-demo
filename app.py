@@ -63,6 +63,17 @@ die Chancen addieren sich. Hier treten sechs Entscheidungsregeln gegeneinander a
 Dauer und Überschätzung kostet.
 """
 )
+
+# erklaerseite:einfach:start (erzeugt von tools/set_demo_explainer.py (Website-Repo) aus tools/content/explainers/sequential-test-erklaert.json, nicht von Hand ändern)
+with st.expander("💬 In einfachen Worten"):
+    st.markdown(
+        """
+Bei einem Experiment mit zwei Regeln wartet man normalerweise, bis alle Messwerte da sind, und wertet dann einmal aus. In der Praxis schaut man zwischendurch hin und möchte aufhören, sobald das Ergebnis „signifikant“ aussieht. Das hat einen Preis: Bei jedem Blick gibt es eine neue Chance auf einen Zufallstreffer, und die Chancen häufen sich. Die Demo lässt sechs Entscheidungsregeln gegeneinander antreten: das **naive** Hinsehen, drei Verfahren mit strengeren Grenzen (Pocock, O'Brien-Fleming, Lan-DeMets), einen jederzeit gültigen Test (mSPRT) und eine Bayes'sche Regel. Weil die wahre Wirkung bekannt ist, misst die Demo Fehlalarme, Teststärke, Dauer und die Überschätzung beim frühen Stopp. Es ist ein stark vereinfachtes Modell mit erfundenen Daten.
+
+[Ausführlich und verständlich erklärt, mit Fachteil](https://sebastianhanisch.net/sequential-test-erklaert.html)
+        """
+    )
+# erklaerseite:einfach:end
 st.caption(
     "Viertes Stück der Linie „Experimente und Wirkungsmessung“, aufbauend auf "
     "[ab-test-demo](https://sebastianhanisch-ab-test-demo.streamlit.app/) und "
@@ -219,6 +230,25 @@ st.caption(
 
 st.markdown("---")
 with st.expander("📐 Mathematische Formulierung"):
+    # erklaerseite:lesehilfe:start (erzeugt von tools/set_demo_explainer.py (Website-Repo) aus tools/content/explainers/sequential-test-erklaert.json, nicht von Hand ändern)
+    st.markdown(
+        r"""
+**Lesehilfe.** Gegeben sind zwei Regeln A und B, deren Fenster nacheinander eintreffen, und $K$ gleichmäßig verteilte Blicke, bei denen jeweils getestet wird. Gesucht ist, wie oft jede Entscheidungsregel einen Befund meldet, wie viele Fenster bis zum Stopp vergehen und wie groß die Schätzung der Wirkung beim Stopp ist.
+
+| Symbol | Bedeutung |
+|---|---|
+| $N$ | höchste Zahl von Fenstern je Arm |
+| $K$, $k$ | Zahl der Blicke bzw. Nummer des Blicks |
+| $Z_k$, $z_k$ | Teststatistik beim Blick $k$ bzw. ihr Betrag |
+| $c_k$ | Grenze beim Blick $k$: gestoppt wird bei $z_k \ge c_k$ |
+| $\alpha$ | versprochene Gesamtrate an Fehlalarmen |
+| $\hat\Delta$, $\Delta$ | gemessene bzw. wahre Wirkung: Mittel von B minus Mittel von A |
+| $\tau$, $\Lambda_n$ | Mischungsbreite und Mischungsquotient des mSPRT nach $n$ Fenstern je Arm |
+
+[Schritt für Schritt erklärt, mit Herleitung und Literatur](https://sebastianhanisch.net/sequential-test-erklaert.html#fachleute)
+        """
+    )
+    # erklaerseite:lesehilfe:end
     st.markdown(
         r"""
 **Fehlalarme beim Hinsehen.** Sei $Z_k$ die Teststatistik nach $k$ von $K$ Blicken. Bei gleichen Regeln ist
