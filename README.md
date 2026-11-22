@@ -2,7 +2,7 @@
 
 **[→ Demo live ausprobieren](https://sebastianhanisch-sequential-test-demo.streamlit.app/)**
 
-Interaktive Demo zum **Hinsehen während eines laufenden Experiments**. **Viertes Stück der Konzepte-Linie „Experimente und
+Interaktive Demo zum **Hinsehen während eines laufenden Experiments** (englisch Peeking). **Viertes Stück der Konzepte-Linie „Experimente und
 Wirkungsmessung“** im Portfolio von [Sebastian Hanisch](https://sebastianhanisch.net) (Operations Research und Machine
 Learning), Kind des [Stücks zur Teststärke](https://github.com/sebastian-hanisch/test-power-demo): dort stand der Umfang vorher
 fest, hier wird zwischendurch hingesehen und bei „signifikant“ gestoppt. Das Vehikel ist dasselbe: ein Standort mit täglicher
@@ -22,7 +22,7 @@ der Schätzung?
   - *Naiv:* Stopp bei p unter 0,05.
   - *Pocock:* dieselbe Grenze an jedem Blick (Konstante so, dass die Gesamtrate 5 % ist).
   - *O'Brien-Fleming:* c_k = C·√(K/k).
-  - *Lan-DeMets:* Ausgabefunktion 2 − 2Φ(z/√t) (O'Brien-Fleming-Typ).
+  - *Lan-DeMets:* Alpha-Spending-Funktion 2 − 2Φ(z/√t) (O'Brien-Fleming-Typ).
   - *mSPRT:* jederzeit gültiger Test (Mischung N(0, τ²) mit τ = 2 Prozentpunkte, nach jedem Fenster, Anlauf 10 Fenster je Arm).
   - *Bayes:* stoppt bei P(B besser) über 95 % (flache Vorannahme, Normalnäherung).
 - **Grenzen** (`seq_boundaries.py`): rekursive Integration der Dichte der Teilsumme (Faltung per FFT), nichts aus Tabellen;
@@ -62,7 +62,7 @@ Alle Zahlen stehen in `tests/test_claims.py` (3 000 Experimente je Zelle, Fehler
 
 | Annahme | Was passiert, wenn sie verletzt ist | Wer setzt an |
 |---|---|---|
-| **Die Blicke sind vorher festgelegt** (Pocock, O'Brien-Fleming) | Wer nach Belieben hinsieht, braucht die Ausgabefunktion (Lan-DeMets) oder den mSPRT. | (dieses Stück) |
+| **Die Blicke sind vorher festgelegt** (Pocock, O'Brien-Fleming) | Wer nach Belieben hinsieht, braucht die Alpha-Spending-Funktion (Lan-DeMets) oder den mSPRT. | (dieses Stück) |
 | **Früh stoppen ist nicht schlimm** | Die Schätzung beim Stopp ist zu groß. | (dieses Stück) |
 | **Ein Test, eine Kennzahl** | Mehrere Kennzahlen mit je mehreren Blicken vervielfachen die Zufallstreffer. | Viele Kennzahlen: Mehrfachtests und Gewinnerfluch |
 | **Einheiten unabhängig und gleichartig** | Verhältniskennzahlen und Cluster machen die Statistik bei jedem Blick unsicherer. | Verhältniskennzahlen und Cluster |

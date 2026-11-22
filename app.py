@@ -55,7 +55,7 @@ def _curve(n):
 st.title("👀 Zwischenblicke: darf man beim Experiment hinsehen?")
 st.markdown(
     """
-Im A/B-Test stand der Umfang vorher fest. In der Praxis sieht man **zwischendurch hin** und möchte stoppen, sobald das
+Im A/B-Test stand der Umfang vorher fest. In der Praxis sieht man **zwischendurch hin** (englisch Peeking) und möchte stoppen, sobald das
 Ergebnis „signifikant“ ist. Das hat einen Preis: **bei jedem Blick gibt es eine neue Chance auf einen Zufallstreffer**, und
 die Chancen addieren sich. Hier treten sechs Entscheidungsregeln gegeneinander an: das **naive** Hinsehen, drei
 **gruppensequentielle** Verfahren (Pocock, O'Brien-Fleming, Lan-DeMets), ein **jederzeit gültiger** Test (mSPRT) und eine
@@ -89,7 +89,7 @@ with st.expander("So funktionieren die sechs Regeln", expanded=True):
 - **Naiv:** Stopp, sobald p unter 0,05. Jeder Blick hat 5 % Fehlalarmchance; über viele Blicke wird daraus ein Vielfaches.
 - **Pocock:** an jedem Blick dieselbe, strengere Grenze (so gewählt, dass die Gesamtrate 5 % bleibt).
 - **O'Brien-Fleming:** am Anfang sehr streng, am Ende fast wie der feste Test; kostet fast keine Teststärke.
-- **Lan-DeMets:** gibt das Fehlalarm-Budget nach einer Ausgabefunktion aus; Zahl und Zeitpunkt der Blicke dürfen sich ändern.
+- **Lan-DeMets:** gibt das Fehlalarm-Budget nach einer Alpha-Spending-Funktion aus; Zahl und Zeitpunkt der Blicke dürfen sich ändern.
 - **mSPRT:** ein „jederzeit gültiger“ Test, der nach jedem einzelnen Fenster erlaubt ist; Preis ist Teststärke. Er darf erst ab
   10 Fenstern je Arm entscheiden, weil die geschätzte Streuung vorher zu unsicher ist.
 - **Bayes:** stoppt, sobald die Wahrscheinlichkeit „B ist besser“ über 95 % liegt (flache Vorannahme). Das klingt nach einem
@@ -215,7 +215,7 @@ st.markdown(
     """
 | Annahme | Was passiert, wenn sie verletzt ist | Wer setzt an |
 |---|---|---|
-| **Die Blicke sind vorher festgelegt** (Pocock, O'Brien-Fleming) | Wer nach Belieben hinsieht, braucht die Ausgabefunktion (Lan-DeMets) oder den mSPRT; die Konstanten gelten nur für die geplanten Blicke. | (dieses Stück) |
+| **Die Blicke sind vorher festgelegt** (Pocock, O'Brien-Fleming) | Wer nach Belieben hinsieht, braucht die Alpha-Spending-Funktion (Lan-DeMets) oder den mSPRT; die Konstanten gelten nur für die geplanten Blicke. | (dieses Stück) |
 | **Früh stoppen ist nicht schlimm** | Die Schätzung beim frühen Stopp ist zu groß; wer nach dem Stopp den Effekt berichtet, berichtet zu viel. | (dieses Stück) |
 | **Ein Test, eine Kennzahl** | Mehrere Kennzahlen mit je mehreren Blicken vervielfachen die Chancen auf Zufallstreffer. | Viele Kennzahlen: Mehrfachtests und Gewinnerfluch |
 | **Die Einheiten sind unabhängig und gleichartig** | Verhältniskennzahlen und Cluster machen die Statistik bei jedem Blick unsicherer. | Verhältniskennzahlen und Cluster |
@@ -260,7 +260,7 @@ O'Brien-Fleming: $c_k = C_K \sqrt{K/k}$. Die Konstanten werden hier durch rekurs
 $S_k = \sum_{j \le k} \xi_j$ bestimmt (Normalzuwächse). Auf die Welch-Statistik werden die Grenzen über den $p$-Wert angewandt:
 $z_k = \Phi^{-1}(1 - p_k/2)$.
 
-**Lan-DeMets.** Eine Ausgabefunktion $\alpha^*(t)$ legt das bis zum Zeitpunkt $t$ ausgegebene Fehlalarm-Budget fest; hier
+**Lan-DeMets.** Eine Alpha-Spending-Funktion $\alpha^*(t)$ legt das bis zum Zeitpunkt $t$ ausgegebene Fehlalarm-Budget fest; hier
 $\alpha^*(t) = 2 - 2\Phi(z_{\alpha/2}/\sqrt t)$ (O'Brien-Fleming-Typ). Die Grenze am Blick $k$ ergibt sich aus dem noch
 verfügbaren Budget (Lan und DeMets 1983).
 

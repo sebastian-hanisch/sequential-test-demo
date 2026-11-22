@@ -28,7 +28,7 @@ RULE_LABELS = {
     "naiv": "Naiv (p unter 0,05 bei jedem Blick)",
     "pocock": "Pocock (gleiche Grenze)",
     "obf": "O'Brien-Fleming (streng am Anfang)",
-    "ld": "Lan-DeMets (Ausgabefunktion)",
+    "ld": "Lan-DeMets (Alpha-Spending-Funktion)",
     "msprt": "mSPRT (jederzeit gültig)",
     "bayes": "Bayes (P(B besser) über 95 %)",
 }
